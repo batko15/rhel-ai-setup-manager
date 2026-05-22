@@ -1,0 +1,53 @@
+# Grafana Datasources
+# RHEL AI Setup
+
+apiVersion: 1
+
+datasources:
+  # Prometheus
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: true
+    editable: false
+    jsonData:
+      timeInterval: "15s"
+      httpMethod: "POST"
+
+  # PostgreSQL
+  - name: PostgreSQL
+    type: postgres
+    access: proxy
+    url: postgres:5432
+    database: ai_db
+    user: ai_user
+    secureJsonData:
+      password: ${POSTGRES_PASSWORD}
+    jsonData:
+      sslmode: disable
+      maxOpenConns: 10
+      maxIdleConns: 5
+      connMaxLifetime: 14400
+
+  # Redis
+  - name: Redis
+    type: redis-datasource
+    access: proxy
+    url: redis://redis:6379
+    jsonData:
+      client: standalone
+      poolSize: 5
+      timeout: 10
+
+  # pgVector
+  - name: pgVector
+    type: postgres
+    access: proxy
+    url: pgvector:5432
+    database: vector_db
+    user: vector_user
+    secureJsonData:
+      password: ${PGVECTOR_PASSWORD}
+    jsonData:
+      sslmode: disable

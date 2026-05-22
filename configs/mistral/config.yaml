@@ -1,0 +1,92 @@
+# Mistral / OpenClaw Konfiguration
+# RHEL AI Setup Manager
+
+# Mistral API Einstellungen
+mistral:
+  api_key: "${MISTRAL_API_KEY}"
+  default_model: "mistral-tiny"
+  api_base: "https://api.mistral.ai/v1"
+  timeout: 120
+  max_retries: 3
+
+# Backend-Konfiguration
+backend:
+  primary: "ollama"
+  ollama:
+    base_url: "http://localhost:11434"
+    timeout: 300
+    max_retries: 3
+    model_mapping:
+      "mistral-tiny": "mistral:latest"
+      "mistral-small": "mistral:7b"
+      "mistral-medium": "mixtral:8x7b"
+  
+  openai:
+    api_key: "${OPENAI_API_KEY}"
+    base_url: "https://api.openai.com/v1"
+    model_mapping:
+      "gpt-4": "gpt-4-turbo"
+      "gpt-3.5": "gpt-3.5-turbo"
+  
+  anthropic:
+    api_key: "${ANTHROPIC_API_KEY}"
+    base_url: "https://api.anthropic.com/v1"
+    model_mapping:
+      "claude-3-opus": "claude-3-opus-20240229"
+      "claude-3-sonnet": "claude-3-sonnet-20240229"
+
+# Workflow-Einstellungen
+workflows:
+  default: "sequential"
+  available:
+    - "sequential"
+    - "parallel"
+    - "interactive"
+    - "batch"
+
+# Skills-Einstellungen
+skills:
+  search_paths:
+    - "/workspace/ultimatives-rhel-ai-setup/mistral-setup/skills"
+    - "/opt/ai-skills"
+  auto_load: true
+  timeout: 60
+  max_depth: 5
+
+# MCP Server Konfiguration
+mcp:
+  enabled_servers:
+    - "filesystem"
+    - "github"
+    - "memory"
+    - "sequential-thinking"
+  servers:
+    filesystem:
+      command: "mcp-server-filesystem"
+      config: "/workspace/ultimatives-rhel-ai-setup/configs/mcp/filesystem.json"
+    github:
+      command: "mcp-server-github"
+      config: "/workspace/ultimatives-rhel-ai-setup/configs/mcp/github.json"
+    memory:
+      command: "mcp-server-memory"
+      config: "/workspace/ultimatives-rhel-ai-setup/configs/mcp/memory.json"
+    sequential-thinking:
+      command: "mcp-server-sequential-thinking"
+      config: "/workspace/ultimatives-rhel-ai-setup/configs/mcp/sequential.json"
+
+# RAG-Konfiguration
+rag:
+  enabled: true
+  vector_db: "chromadb"
+  embedding_model: "nomic-embed-text"
+  chunk_size: 512
+  chunk_overlap: 50
+  max_documents: 10000
+
+# Agent-Konfiguration
+agents:
+  default_model: "mistral:latest"
+  max_iterations: 10
+  timeout: 300
+  memory_enabled: true
+  tools_enabled: true

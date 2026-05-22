@@ -1,0 +1,58 @@
+{
+  "name": "memory",
+  "type": "@modelcontextprotocol/server-memory",
+  "args": {
+    "storagePath": "/root/.mcp/memory.json",
+    "storageType": "json",
+    "maxMemories": 10000,
+    "maxMemorySize": 1048576,
+    "maxTotalSize": 104857600,
+    "enableExpiration": true,
+    "defaultExpirationDays": 365,
+    "sortByAccessTime": true,
+    "enableFullTextSearch": true,
+    "enableSimilaritySearch": true,
+    "similarityThreshold": 0.7,
+    "maxSearchResults": 20,
+    "contextWindow": 4096,
+    "autoSummarize": true,
+    "maxSummaryLength": 512,
+    "autoTagging": true,
+    "customTags": [
+      "important",
+      "project",
+      "code",
+      "documentation",
+      "configuration",
+      "error",
+      "solution",
+      "reference"
+    ],
+    "categories": [
+      {
+        "name": "conversations",
+        "maxItems": 1000,
+        "retentionDays": 90
+      },
+      {
+        "name": "code-snippets",
+        "maxItems": 500,
+        "retentionDays": 365
+      },
+      {
+        "name": "documentation",
+        "maxItems": 200,
+        "retentionDays": 365
+      },
+      {
+        "name": "errors",
+        "maxItems": 100,
+        "retentionDays": 30
+      }
+    ]
+  },
+  "server": {
+    "host": "127.0.0.1",
+    "port": 4003
+  }
+}

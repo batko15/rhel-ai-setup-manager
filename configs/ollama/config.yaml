@@ -1,0 +1,100 @@
+# Ollama Hauptkonfiguration
+# RHEL AI Setup Manager
+
+ollama:
+  # Netzwerk-Einstellungen
+  host: 0.0.0.0
+  port: 11434
+  origins:
+    - "*"
+  
+  # Modell-Einstellungen
+  max_loaded_models: 4
+  max_vram: 0  # 0 = unbegrenzt
+  gpu: auto    # auto, true, false
+  keep_alive: 24h
+  
+  # Performance-Einstellungen
+  num_parallel: 1
+  num_thread: 8
+  
+  # Speicher-Einstellungen
+  model_dir: /root/.ollama/models
+  
+  # Log-Einstellungen
+  log_level: info
+  log_file: /var/log/ollama.log
+
+# Standardmodell
+default_model: mistral:latest
+
+# GPU-spezifische Einstellungen
+gpu_settings:
+  nvidia:
+    enabled: true
+    memory_limit: 0  # 0 = unbegrenzt
+  amd:
+    enabled: true
+    memory_limit: 0
+  intel:
+    enabled: true
+    memory_limit: 0
+
+# Modell-spezifische Einstellungen
+models:
+  mistral:latest:
+    priority: 1
+    gpu_memory: 8GB
+    num_thread: 4
+    temperature: 0.7
+  mixtral:8x7b:
+    priority: 3
+    gpu_memory: 24GB
+    num_thread: 8
+    temperature: 0.3
+  llama3.1:8b:
+    priority: 2
+    gpu_memory: 8GB
+    num_thread: 4
+    temperature: 0.7
+  deepseek-r1:7b:
+    priority: 2
+    gpu_memory: 8GB
+    num_thread: 4
+    temperature: 0.5
+  qwen2.5-coder:7b:
+    priority: 2
+    gpu_memory: 8GB
+    num_thread: 4
+    temperature: 0.3
+  phi-4:14b:
+    priority: 3
+    gpu_memory: 12GB
+    num_thread: 6
+    temperature: 0.7
+
+# Hardware-Profile
+profiles:
+  cpu-only:
+    max_loaded_models: 2
+    max_vram: 0
+    gpu: false
+    num_thread: 8
+  
+  gpu-rtx3060:
+    max_loaded_models: 2
+    max_vram: 12GB
+    gpu: true
+    num_thread: 4
+  
+  gpu-rtx4090:
+    max_loaded_models: 4
+    max_vram: 24GB
+    gpu: true
+    num_thread: 8
+  
+  gpu-a100:
+    max_loaded_models: 6
+    max_vram: 80GB
+    gpu: true
+    num_thread: 16

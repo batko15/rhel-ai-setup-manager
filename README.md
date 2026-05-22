@@ -274,6 +274,49 @@ docker-compose up -d
 
 ## 🔧 Konfiguration
 
+Das Projekt enthält umfassende Konfigurationsdateien für alle Komponenten:
+
+### Konfigurationsverzeichnis
+
+```
+configs/
+├── ollama/
+│   └── config.yaml          # Ollama Hauptkonfiguration
+├── mistral/
+│   ├── config.yaml          # Mistral/OpenClaw Konfiguration
+│   └── openclaw.json        # OpenClaw JSON-Konfiguration
+├── mcp/
+│   ├── filesystem.json      # MCP Filesystem Server
+│   ├── github.json          # MCP GitHub Server
+│   ├── memory.json          # MCP Memory Server
+│   └── sequential.json      # MCP Sequential Thinking Server
+├── system/
+│   ├── sysctl.conf          # Kernel-Parameter
+│   ├── limits.conf          # System-Limits
+│   └── environment.sh       # Umgebungsvariablen
+├── prometheus/
+│   └── prometheus.yml       # Prometheus Konfiguration
+└── grafana/
+    └── provisioning/        # Grafana Datasources
+```
+
+### Schnellkonfiguration
+
+```bash
+# Ollama Konfiguration anwenden
+cp configs/ollama/config.yaml ~/.ollama/config.yaml
+
+# System-Parameter anwenden
+sudo cp configs/system/sysctl.conf /etc/sysctl.d/99-rhel-ai.conf
+sudo sysctl -p /etc/sysctl.d/99-rhel-ai.conf
+
+# System-Limits anwenden
+sudo cp configs/system/limits.conf /etc/security/limits.d/99-rhel-ai.conf
+
+# Umgebungsvariablen laden
+source configs/system/environment.sh
+```
+
 ### Umgebungsvariablen
 
 ```bash
@@ -281,12 +324,36 @@ docker-compose up -d
 NVIDIA_VISIBLE_DEVICES=all
 CUDA_VISIBLE_DEVICES=0,1,2,3
 
+# Ollama-Einstellungen
+OLLAMA_HOST=0.0.0.0
+OLLAMA_ORIGINS="*"
+OLLAMA_MAX_LOADED_MODELS=4
+OLLAMA_GPU=true
+
 # Modell-Einstellungen
-DEFAULT_MODEL=llama3
-MODEL_PATH=/models
+DEFAULT_MODEL=mistral:latest
+MODEL_PATH=/opt/models
 
 # Container-Einstellungen
 PODMAN_RUNTIME=nvidia
+DOCKER_RUNTIME=nvidia
+```
+
+### MCP Server starten
+
+```bash
+# Filesystem MCP Server
+npx @modelcontextprotocol/server-filesystem /workspace /root /opt
+
+# GitHub MCP Server (erfordert Token)
+export GITHUB_TOKEN=your_token
+npx @modelcontextprotocol/server-github
+
+# Memory MCP Server
+npx @modelcontextprotocol/server-memory
+
+# Sequential Thinking MCP Server
+npx @modelcontextprotocol/server-sequential-thinking
 ```
 
 ### Docker Compose Beispiel

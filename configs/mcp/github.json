@@ -1,0 +1,55 @@
+{
+  "name": "github",
+  "type": "@modelcontextprotocol/server-github",
+  "args": {
+    "githubPersonalAccessToken": "${GITHUB_TOKEN}",
+    "repos": [
+      {
+        "owner": "batko15",
+        "name": "*",
+        "branch": "main"
+      }
+    ],
+    "allowPrivateRepos": true,
+    "maxRepos": 50,
+    "maxFilesPerRepo": 5000,
+    "maxFileSize": 10485760,
+    "includePatterns": [
+      "*.md",
+      "*.py",
+      "*.js",
+      "*.ts",
+      "*.tsx",
+      "*.go",
+      "*.rs",
+      "*.java",
+      "*.json",
+      "*.yaml",
+      "*.yml",
+      "*.sh"
+    ],
+    "excludePatterns": [
+      "*.min.js",
+      "*.min.css",
+      "*.log",
+      ".git/*",
+      "node_modules/*",
+      "__pycache__/*",
+      "*.pyc",
+      "dist/*",
+      "build/*",
+      ".next/*"
+    ],
+    "features": {
+      "issues": true,
+      "pullRequests": true,
+      "actions": true,
+      "releases": true,
+      "discussions": false
+    }
+  },
+  "server": {
+    "host": "127.0.0.1",
+    "port": 4002
+  }
+}

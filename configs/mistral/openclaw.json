@@ -1,0 +1,105 @@
+{
+  "openclaw": {
+    "version": "1.0.0",
+    "name": "Ultimatives RHEL AI Setup",
+    "settings": {
+      "debug": false,
+      "log_level": "info",
+      "log_file": "/var/log/openclaw.log"
+    }
+  },
+  "models": [
+    {
+      "name": "mistral:latest",
+      "provider": "ollama",
+      "api_base": "http://localhost:11434",
+      "default": true,
+      "priority": 1,
+      "context_window": 32768,
+      "max_tokens": 32768,
+      "temperature": 0.7,
+      "top_p": 0.9
+    },
+    {
+      "name": "mixtral:8x7b",
+      "provider": "ollama",
+      "api_base": "http://localhost:11434",
+      "default": false,
+      "priority": 2,
+      "context_window": 32768,
+      "max_tokens": 16384,
+      "temperature": 0.3,
+      "top_p": 0.9
+    },
+    {
+      "name": "llama3.1:8b",
+      "provider": "ollama",
+      "api_base": "http://localhost:11434",
+      "default": false,
+      "priority": 2,
+      "context_window": 128000,
+      "max_tokens": 4096,
+      "temperature": 0.7,
+      "top_p": 0.9
+    },
+    {
+      "name": "deepseek-r1:7b",
+      "provider": "ollama",
+      "api_base": "http://localhost:11434",
+      "default": false,
+      "priority": 2,
+      "context_window": 64000,
+      "max_tokens": 8192,
+      "temperature": 0.5,
+      "top_p": 0.95
+    },
+    {
+      "name": "qwen2.5-coder:7b",
+      "provider": "ollama",
+      "api_base": "http://localhost:11434",
+      "default": false,
+      "priority": 2,
+      "context_window": 32768,
+      "max_tokens": 8192,
+      "temperature": 0.3,
+      "top_p": 0.9
+    }
+  ],
+  "plugins": [
+    {
+      "name": "filesystem",
+      "type": "mcp",
+      "command": "mcp-server-filesystem",
+      "enabled": true
+    },
+    {
+      "name": "github",
+      "type": "mcp",
+      "command": "mcp-server-github",
+      "enabled": true
+    },
+    {
+      "name": "memory",
+      "type": "mcp",
+      "command": "mcp-server-memory",
+      "enabled": true
+    },
+    {
+      "name": "sequential-thinking",
+      "type": "mcp",
+      "command": "mcp-server-sequential-thinking",
+      "enabled": true
+    }
+  ],
+  "workflows": {
+    "default": "sequential",
+    "available": ["sequential", "parallel", "interactive", "batch"]
+  },
+  "settings": {
+    "max_iterations": 10,
+    "timeout": 300,
+    "memory_enabled": true,
+    "tools_enabled": true,
+    "streaming": true
+  }
+}

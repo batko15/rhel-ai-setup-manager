@@ -1,0 +1,46 @@
+{
+  "name": "sequential-thinking",
+  "type": "@modelcontextprotocol/server-sequential-thinking",
+  "args": {
+    "maxSteps": 20,
+    "maxTimePerStep": 60,
+    "maxTotalTime": 600,
+    "maxTokensPerStep": 2048,
+    "maxTotalTokens": 8192,
+    "temperature": 0.3,
+    "topP": 0.9,
+    "topK": 40,
+    "repetitionPenalty": 1.1,
+    "numAlternatives": 3,
+    "numKeep": 2,
+    "enableSelfReflection": true,
+    "enableHypothesisGeneration": true,
+    "enablePlanning": true,
+    "enableVerification": true,
+    "enableSummarization": true,
+    "model": "mistral:latest",
+    "defaultStyle": "default",
+    "styles": {
+      "default": {
+        "description": "Standard schrittweises Denken",
+        "steps": ["understand", "plan", "execute", "verify", "summarize"]
+      },
+      "scientific": {
+        "description": "Wissenschaftliche Methode",
+        "steps": ["observe", "hypothesize", "predict", "test", "analyze", "conclude"]
+      },
+      "problem-solving": {
+        "description": "Problemlösungsansatz",
+        "steps": ["define", "analyze", "brainstorm", "evaluate", "select", "implement", "review"]
+      },
+      "code-review": {
+        "description": "Code-Review-Prozess",
+        "steps": ["read", "understand", "check-logic", "check-style", "check-security", "suggest", "summarize"]
+      }
+    }
+  },
+  "server": {
+    "host": "127.0.0.1",
+    "port": 4004
+  }
+}

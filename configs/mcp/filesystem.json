@@ -1,0 +1,85 @@
+{
+  "name": "filesystem",
+  "type": "@modelcontextprotocol/server-filesystem",
+  "args": {
+    "directories": [
+      {
+        "name": "workspace",
+        "path": "/workspace",
+        "readOnly": false
+      },
+      {
+        "name": "home",
+        "path": "/root",
+        "readOnly": false
+      },
+      {
+        "name": "opt",
+        "path": "/opt",
+        "readOnly": false
+      },
+      {
+        "name": "etc",
+        "path": "/etc",
+        "readOnly": true
+      },
+      {
+        "name": "projects",
+        "path": "/opt/projects",
+        "readOnly": false
+      },
+      {
+        "name": "models",
+        "path": "/opt/models",
+        "readOnly": true
+      }
+    ],
+    "allowDirectoryCreation": false,
+    "allowFileCreation": true,
+    "allowFileDeletion": false,
+    "allowFileModification": true,
+    "maxFileSize": 104857600,
+    "maxReadSize": 10485760,
+    "maxDepth": 10,
+    "followSymlinks": true,
+    "includeHidden": false,
+    "includePatterns": [
+      "*.md",
+      "*.txt",
+      "*.json",
+      "*.yaml",
+      "*.yml",
+      "*.py",
+      "*.js",
+      "*.ts",
+      "*.tsx",
+      "*.go",
+      "*.rs",
+      "*.java",
+      "*.c",
+      "*.cpp",
+      "*.h",
+      "*.sh",
+      "*.env.example"
+    ],
+    "excludePatterns": [
+      "*.log",
+      "*.tmp",
+      "*.bak",
+      "*.swp",
+      ".git/*",
+      "node_modules/*",
+      "__pycache__/*",
+      ".venv/*",
+      "venv/*",
+      "*.pyc",
+      ".env",
+      "*.pem",
+      "*.key"
+    ]
+  },
+  "server": {
+    "host": "127.0.0.1",
+    "port": 4001
+  }
+}
