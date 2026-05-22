@@ -24,7 +24,7 @@ import {
   MessageSquare, MemoryStick, Eye, Sparkles, Rocket, CpuIcon,
   ChevronRight, Filter, SortAsc, Grid3X3, LayoutDashboard, Heart,
   TrendingUp, Clock, FolderOpen, Command, Webhook, Puzzle,
-  Key, Workflow, MonitorPlay, Linux, Smartphone, Globe,
+  Key, Workflow, MonitorPlay, MonitorSmartphone, Smartphone, Globe,
   BookOpen, Wand2, Cog, Menu, X, Collapsible
 } from 'lucide-react';
 import { toolCategories, aiTools, getToolsByCategory, getPopularTools, type Tool } from '@/lib/tools-data';
@@ -159,7 +159,7 @@ export default function RHELAISetupManager() {
       'Puzzle': <Puzzle className="h-4 w-4" />,
       'Zap': <Zap className="h-4 w-4" />,
       'MonitorPlay': <MonitorPlay className="h-4 w-4" />,
-      'Linux': <Linux className="h-4 w-4" />,
+      'Linux': <Monitor className="h-4 w-4" />,
       'Smartphone': <Smartphone className="h-4 w-4" />,
       'Workflow': <Workflow className="h-4 w-4" />,
       'Key': <Key className="h-4 w-4" />,
