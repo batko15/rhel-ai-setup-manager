@@ -1937,19 +1937,7 @@ export const aiTools: Tool[] = [
     installCommand: 'pip install horovod',
     status: 'available'
   },
-  {
-    id: 'accelerate',
-    name: 'HuggingFace Accelerate',
-    slug: 'accelerate',
-    description: 'Simple and unified API for distributed training',
-    category: 'gpu-tools',
-    icon: '🚀',
-    tags: ['distributed', 'training', 'huggingface'],
-    repository: 'https://github.com/huggingface/accelerate',
-    installCommand: 'pip install accelerate',
-    isPopular: true,
-    status: 'available'
-  },
+
   {
     id: 'vllm-worker',
     name: 'vLLM Worker',
@@ -2695,20 +2683,7 @@ export const aiTools: Tool[] = [
     tags: ['cli', 'google', 'gemini'],
     status: 'available'
   },
-  {
-    id: 'aider',
-    name: 'Aider',
-    slug: 'aider',
-    description: 'AI pair programming in your terminal',
-    category: 'development',
-    icon: '🤝',
-    tags: ['terminal', 'pair-programming', 'git'],
-    homepage: 'https://aider.chat',
-    repository: 'https://github.com/paul-gauthier/aider',
-    installCommand: 'pip install aider-chat',
-    isPopular: true,
-    status: 'available'
-  },
+
   {
     id: 'cursor-agent',
     name: 'Cursor Agent',
@@ -2860,7 +2835,7 @@ export const aiTools: Tool[] = [
   // AUDIO AI (10+)
   // ==========================================
   {
-    id: 'whisper',
+    id: 'whisper-audio',
     name: 'Whisper',
     slug: 'whisper-audio',
     description: 'OpenAI Whisper speech recognition',
@@ -4205,9 +4180,9 @@ export const aiTools: Tool[] = [
   // GITHUB AI TOOLS (15+)
   // ==========================================
   {
-    id: 'github-copilot',
+    id: 'github-copilot-ai',
     name: 'GitHub Copilot',
-    slug: 'github-copilot',
+    slug: 'github-copilot-ai',
     description: 'AI pair programmer by GitHub',
     category: 'github-ai',
     icon: '✈️',
@@ -4649,9 +4624,9 @@ export const aiTools: Tool[] = [
     status: 'available'
   },
   {
-    id: 'prefect',
+    id: 'prefect-automation',
     name: 'Prefect',
-    slug: 'prefect',
+    slug: 'prefect-automation',
     description: 'Workflow orchestration for data and ML',
     category: 'ai-automation',
     icon: '🔷',
@@ -4663,9 +4638,9 @@ export const aiTools: Tool[] = [
     status: 'available'
   },
   {
-    id: 'airflow',
+    id: 'airflow-automation',
     name: 'Apache Airflow',
-    slug: 'airflow',
+    slug: 'airflow-automation',
     description: 'Platform to programmatically author workflows',
     category: 'ai-automation',
     icon: '🌀',
@@ -4677,9 +4652,9 @@ export const aiTools: Tool[] = [
     status: 'available'
   },
   {
-    id: 'dagster',
+    id: 'dagster-automation',
     name: 'Dagster',
-    slug: 'dagster',
+    slug: 'dagster-automation',
     description: 'Data orchestration for ML and analytics',
     category: 'ai-automation',
     icon: '🏗️',
@@ -4823,9 +4798,9 @@ export const aiTools: Tool[] = [
     status: 'available'
   },
   {
-    id: 'superagent',
-    name: 'SuperAgent',
-    slug: 'superagent',
+    id: 'superagent-ai',
+    name: 'SuperAgent AI',
+    slug: 'superagent-ai',
     description: 'Build AI agents for any use case',
     category: 'computer-use',
     icon: '🦸',
