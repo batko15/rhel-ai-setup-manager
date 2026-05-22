@@ -1,5 +1,5 @@
-// RHEL AI Full-Stack Tools Database - Extended Edition
-// Complete collection of 150+ AI/ML tools for Linux
+// BigLinux AI Full-Stack Tools Database - Extended Edition
+// Complete collection of 600+ AI/ML tools for BigLinux/Manjaro
 
 export interface Tool {
   id: string;
@@ -2255,7 +2255,7 @@ export const aiTools: Tool[] = [
     tags: ['containers', 'daemonless', 'rootless'],
     homepage: 'https://podman.io',
     repository: 'https://github.com/containers/podman',
-    installCommand: 'sudo dnf install podman',
+    installCommand: 'sudo pacman -S podman',
     isPopular: true,
     status: 'available'
   },
@@ -2346,7 +2346,7 @@ export const aiTools: Tool[] = [
     tags: ['containers', 'build', 'oci'],
     homepage: 'https://buildah.io',
     repository: 'https://github.com/containers/buildah',
-    installCommand: 'sudo dnf install buildah',
+    installCommand: 'sudo pacman -S buildah',
     status: 'available'
   },
   {
@@ -2359,7 +2359,7 @@ export const aiTools: Tool[] = [
     tags: ['containers', 'registries', 'copy'],
     homepage: 'https://skopeo.io',
     repository: 'https://github.com/containers/skopeo',
-    installCommand: 'sudo dnf install skopeo',
+    installCommand: 'sudo pacman -S skopeo',
     status: 'available'
   },
 
@@ -2397,7 +2397,7 @@ export const aiTools: Tool[] = [
     category: 'security',
     icon: '🔥',
     tags: ['firewall', 'network', 'security'],
-    installCommand: 'sudo dnf install firewalld',
+    installCommand: 'sudo pacman -S firewalld',
     status: 'available'
   },
   {
@@ -2460,7 +2460,7 @@ export const aiTools: Tool[] = [
     icon: '🔒',
     tags: ['encryption', 'modern', 'simple'],
     repository: 'https://github.com/FiloSottile/age',
-    installCommand: 'sudo dnf install age',
+    installCommand: 'sudo pacman -S age',
     status: 'available'
   },
   {
@@ -2472,7 +2472,7 @@ export const aiTools: Tool[] = [
     icon: '🔑',
     tags: ['encryption', 'pgp', 'privacy'],
     homepage: 'https://gnupg.org',
-    installCommand: 'sudo dnf install gnupg',
+    installCommand: 'sudo pacman -S gnupg',
     status: 'available'
   },
   {
@@ -2483,7 +2483,7 @@ export const aiTools: Tool[] = [
     category: 'security',
     icon: '🛡️',
     tags: ['rootkit', 'scanner', 'security'],
-    installCommand: 'sudo dnf install rkhunter',
+    installCommand: 'sudo pacman -S rkhunter',
     status: 'available'
   },
 
@@ -2572,7 +2572,7 @@ export const aiTools: Tool[] = [
     icon: '🎬',
     tags: ['video', 'audio', 'multimedia'],
     homepage: 'https://ffmpeg.org',
-    installCommand: 'sudo dnf install ffmpeg ffmpeg-free-devel',
+    installCommand: 'sudo pacman -S ffmpeg',
     isPopular: true,
     status: 'available'
   },
@@ -5206,18 +5206,7 @@ export const aiTools: Tool[] = [
     isPopular: true,
     status: 'available'
   },
-  {
-    id: 'rhel-ai',
-    name: 'RHEL AI / InstructLab',
-    slug: 'rhel-ai',
-    description: 'Red Hat Enterprise Linux with AI capabilities',
-    category: 'linux-distros',
-    icon: '🎩',
-    tags: ['rhel', 'enterprise', 'ibm', 'instructlab'],
-    homepage: 'https://developers.redhat.com/products/rhel-ai',
-    isPopular: true,
-    status: 'available'
-  },
+
 
   // ==========================================
   // LINUX SYSTEM TOOLS (20+)
@@ -5457,7 +5446,7 @@ export const aiTools: Tool[] = [
     icon: '📦',
     tags: ['snap', 'ubuntu', 'universal', 'containerized'],
     homepage: 'https://snapcraft.io',
-    installCommand: 'sudo dnf install snapd',
+    installCommand: 'sudo pacman -S snapd',
     status: 'available',
     configOptions: [
       { key: 'enableClassic', label: 'Enable Classic', type: 'boolean', default: true, description: 'Enable classic confinement' }
@@ -5472,7 +5461,7 @@ export const aiTools: Tool[] = [
     icon: '📦',
     tags: ['flatpak', 'sandbox', 'universal'],
     homepage: 'https://flatpak.org',
-    installCommand: 'sudo dnf install flatpak',
+    installCommand: 'sudo pacman -S flatpak',
     isPopular: true,
     status: 'available',
     configOptions: [
@@ -5488,7 +5477,7 @@ export const aiTools: Tool[] = [
     icon: '📦',
     tags: ['appimage', 'portable', 'universal'],
     repository: 'https://github.com/AppImage/AppImageKit',
-    installCommand: 'sudo dnf install appimage-launcher',
+    installCommand: 'sudo pacman -S appimage-launcher',
     status: 'available'
   },
   {
@@ -5527,7 +5516,7 @@ export const aiTools: Tool[] = [
     tags: ['fedora', 'toolbox', 'container', 'development'],
     homepage: 'https://containertoolbx.org',
     repository: 'https://github.com/containers/toolbox',
-    installCommand: 'sudo dnf install toolbox',
+    installCommand: 'sudo pacman -S toolbox',
     isPopular: true,
     status: 'available'
   },
@@ -5596,7 +5585,7 @@ export const aiTools: Tool[] = [
     tags: ['hyprland', 'wayland', 'tiling', 'compositor'],
     homepage: 'https://hyprland.org',
     repository: 'https://github.com/hyprwm/Hyprland',
-    installCommand: 'sudo dnf install hyprland',
+    installCommand: 'sudo pacman -S hyprland',
     isPopular: true,
     status: 'available',
     configOptions: [
@@ -5615,7 +5604,7 @@ export const aiTools: Tool[] = [
     tags: ['sway', 'wayland', 'i3', 'tiling'],
     homepage: 'https://swaywm.org',
     repository: 'https://github.com/swaywm/sway',
-    installCommand: 'sudo dnf install sway',
+    installCommand: 'sudo pacman -S sway',
     status: 'available',
     configOptions: [
       { key: 'xwayland', label: 'XWayland Support', type: 'boolean', default: true, description: 'Enable XWayland for X11 apps' }
@@ -5649,7 +5638,7 @@ export const aiTools: Tool[] = [
     icon: '💚',
     tags: ['nvidia', 'driver', 'gpu', 'proprietary'],
     homepage: 'https://www.nvidia.com/Download/index.aspx',
-    installCommand: 'sudo dnf install akmod-nvidia',
+    installCommand: 'sudo pacman -S akmod-nvidia',
     isPopular: true,
     status: 'available',
     configOptions: [
@@ -5667,7 +5656,7 @@ export const aiTools: Tool[] = [
     icon: '❤️',
     tags: ['amd', 'gpu', 'driver', 'open-source'],
     homepage: 'https://www.amd.com/en/support',
-    installCommand: 'sudo dnf install mesa-vulkan-drivers mesa-dri-drivers',
+    installCommand: 'sudo pacman -S mesa-vulkan-drivers mesa-dri-drivers',
     isPopular: true,
     status: 'available',
     configOptions: [
@@ -5684,7 +5673,7 @@ export const aiTools: Tool[] = [
     icon: '💙',
     tags: ['intel', 'gpu', 'driver', 'arc'],
     homepage: 'https://www.intel.com/content/www/us/en/products/docs/discrete-gpus/arc/software.html',
-    installCommand: 'sudo dnf install intel-media-driver mesa-vulkan-drivers',
+    installCommand: 'sudo pacman -S intel-media-driver mesa-vulkan-drivers',
     status: 'available',
     configOptions: [
       { key: 'oneapi', label: 'OneAPI Support', type: 'boolean', default: true, description: 'Install Intel oneAPI' },
@@ -5701,7 +5690,7 @@ export const aiTools: Tool[] = [
     tags: ['nvidia', 'container', 'docker', 'podman'],
     homepage: 'https://docs.nvidia.com/datacenter/cloud-native/container-toolkit',
     repository: 'https://github.com/NVIDIA/nvidia-container-toolkit',
-    installCommand: 'sudo dnf install nvidia-container-toolkit',
+    installCommand: 'sudo pacman -S nvidia-container-toolkit',
     isPopular: true,
     status: 'available'
   },
@@ -5719,7 +5708,7 @@ export const aiTools: Tool[] = [
     tags: ['monitoring', 'process', 'system', 'terminal'],
     homepage: 'https://htop.dev',
     repository: 'https://github.com/htop-dev/htop',
-    installCommand: 'sudo dnf install htop',
+    installCommand: 'sudo pacman -S htop',
     isPopular: true,
     status: 'available'
   },
@@ -5732,7 +5721,7 @@ export const aiTools: Tool[] = [
     icon: '📈',
     tags: ['monitoring', 'gpu', 'resource', 'terminal'],
     repository: 'https://github.com/aristocratos/btop',
-    installCommand: 'sudo dnf install btop',
+    installCommand: 'sudo pacman -S btop',
     isPopular: true,
     status: 'available'
   },
@@ -5745,7 +5734,7 @@ export const aiTools: Tool[] = [
     icon: '💚',
     tags: ['nvidia', 'gpu', 'monitoring', 'process'],
     repository: 'https://github.com/Syllo/nvtop',
-    installCommand: 'sudo dnf install nvtop',
+    installCommand: 'sudo pacman -S nvtop',
     isPopular: true,
     status: 'available'
   },
@@ -5770,7 +5759,7 @@ export const aiTools: Tool[] = [
     icon: '💙',
     tags: ['intel', 'gpu', 'monitoring'],
     repository: 'https://gitlab.freedesktop.org/drm/igt-gpu-tools',
-    installCommand: 'sudo dnf install igt-gpu-tools',
+    installCommand: 'sudo pacman -S igt-gpu-tools',
     status: 'available'
   },
   {
@@ -5782,7 +5771,7 @@ export const aiTools: Tool[] = [
     icon: '🖥️',
     tags: ['system-info', 'terminal', 'display'],
     repository: 'https://github.com/dylanaraps/neofetch',
-    installCommand: 'sudo dnf install neofetch',
+    installCommand: 'sudo pacman -S neofetch',
     isPopular: true,
     status: 'available'
   },
@@ -5795,7 +5784,7 @@ export const aiTools: Tool[] = [
     icon: '⚡',
     tags: ['system-info', 'fast', 'terminal'],
     repository: 'https://github.com/fastfetch-cli/fastfetch',
-    installCommand: 'sudo dnf install fastfetch',
+    installCommand: 'sudo pacman -S fastfetch',
     status: 'available'
   },
   {
@@ -5808,7 +5797,7 @@ export const aiTools: Tool[] = [
     tags: ['terminal', 'multiplexer', 'session'],
     homepage: 'https://github.com/tmux/tmux',
     repository: 'https://github.com/tmux/tmux',
-    installCommand: 'sudo dnf install tmux',
+    installCommand: 'sudo pacman -S tmux',
     isPopular: true,
     status: 'available'
   },
@@ -5822,7 +5811,7 @@ export const aiTools: Tool[] = [
     tags: ['terminal', 'workspace', 'rust', 'multiplexer'],
     homepage: 'https://zellij.dev',
     repository: 'https://github.com/zellij-org/zellij',
-    installCommand: 'sudo dnf install zellij',
+    installCommand: 'sudo pacman -S zellij',
     status: 'available'
   },
   {
@@ -5848,7 +5837,7 @@ export const aiTools: Tool[] = [
     icon: '🐚',
     tags: ['shell', 'zsh', 'terminal'],
     homepage: 'https://zsh.org',
-    installCommand: 'sudo dnf install zsh',
+    installCommand: 'sudo pacman -S zsh',
     isPopular: true,
     status: 'available'
   },
@@ -5876,7 +5865,7 @@ export const aiTools: Tool[] = [
     tags: ['shell', 'fish', 'terminal', 'user-friendly'],
     homepage: 'https://fishshell.com',
     repository: 'https://github.com/fish-shell/fish-shell',
-    installCommand: 'sudo dnf install fish',
+    installCommand: 'sudo pacman -S fish',
     status: 'available'
   },
   {
@@ -5888,7 +5877,7 @@ export const aiTools: Tool[] = [
     icon: '📁',
     tags: ['ls', 'file', 'rust', 'modern'],
     repository: 'https://github.com/eza-community/eza',
-    installCommand: 'sudo dnf install eza',
+    installCommand: 'sudo pacman -S eza',
     status: 'available'
   },
   {
@@ -5900,7 +5889,7 @@ export const aiTools: Tool[] = [
     icon: '🦇',
     tags: ['cat', 'syntax', 'rust', 'terminal'],
     repository: 'https://github.com/sharkdp/bat',
-    installCommand: 'sudo dnf install bat',
+    installCommand: 'sudo pacman -S bat',
     isPopular: true,
     status: 'available'
   },
@@ -5913,7 +5902,7 @@ export const aiTools: Tool[] = [
     icon: '🔍',
     tags: ['find', 'search', 'rust', 'fast'],
     repository: 'https://github.com/sharkdp/fd',
-    installCommand: 'sudo dnf install fd-find',
+    installCommand: 'sudo pacman -S fd-find',
     isPopular: true,
     status: 'available'
   },
@@ -5926,7 +5915,7 @@ export const aiTools: Tool[] = [
     icon: '🔎',
     tags: ['grep', 'search', 'rust', 'fast'],
     repository: 'https://github.com/BurntSushi/ripgrep',
-    installCommand: 'sudo dnf install ripgrep',
+    installCommand: 'sudo pacman -S ripgrep',
     isPopular: true,
     status: 'available'
   },
@@ -5939,7 +5928,7 @@ export const aiTools: Tool[] = [
     icon: '🎯',
     tags: ['fuzzy', 'search', 'terminal', 'go'],
     repository: 'https://github.com/junegunn/fzf',
-    installCommand: 'sudo dnf install fzf',
+    installCommand: 'sudo pacman -S fzf',
     isPopular: true,
     status: 'available'
   },
@@ -5953,7 +5942,7 @@ export const aiTools: Tool[] = [
     tags: ['environment', 'shell', 'automatic', 'go'],
     homepage: 'https://direnv.net',
     repository: 'https://github.com/direnv/direnv',
-    installCommand: 'sudo dnf install direnv',
+    installCommand: 'sudo pacman -S direnv',
     status: 'available'
   },
   {
@@ -6020,7 +6009,7 @@ export const aiTools: Tool[] = [
     icon: '🐹',
     tags: ['go', 'golang', 'programming', 'language'],
     homepage: 'https://go.dev',
-    installCommand: 'sudo dnf install golang',
+    installCommand: 'sudo pacman -S golang',
     isPopular: true,
     status: 'available'
   },
@@ -6037,7 +6026,7 @@ export const aiTools: Tool[] = [
     icon: '🌐',
     tags: ['network', 'wifi', 'ethernet', 'gui'],
     homepage: 'https://networkmanager.dev',
-    installCommand: 'sudo dnf install NetworkManager',
+    installCommand: 'sudo pacman -S NetworkManager',
     isPopular: true,
     status: 'available'
   },
@@ -6050,7 +6039,7 @@ export const aiTools: Tool[] = [
     icon: '📶',
     tags: ['network', 'cli', 'wifi', 'vpn'],
     homepage: 'https://networkmanager.dev/docs/api/latest/nmcli.html',
-    installCommand: 'sudo dnf install NetworkManager',
+    installCommand: 'sudo pacman -S NetworkManager',
     status: 'available'
   },
   {
@@ -6062,7 +6051,7 @@ export const aiTools: Tool[] = [
     icon: '🔒',
     tags: ['vpn', 'wireguard', 'security', 'fast'],
     homepage: 'https://wireguard.com',
-    installCommand: 'sudo dnf install wireguard-tools',
+    installCommand: 'sudo pacman -S wireguard-tools',
     isPopular: true,
     status: 'available'
   },
@@ -6076,7 +6065,7 @@ export const aiTools: Tool[] = [
     tags: ['vpn', 'mesh', 'wireguard', 'easy'],
     homepage: 'https://tailscale.com',
     repository: 'https://github.com/tailscale/tailscale',
-    installCommand: 'sudo dnf install tailscale',
+    installCommand: 'sudo pacman -S tailscale',
     isPopular: true,
     status: 'available'
   },
@@ -6089,7 +6078,7 @@ export const aiTools: Tool[] = [
     icon: '🔐',
     tags: ['ssh', 'remote', 'security', 'server'],
     homepage: 'https://openssh.com',
-    installCommand: 'sudo dnf install openssh-server openssh-clients',
+    installCommand: 'sudo pacman -S openssh-server openssh-clients',
     isPopular: true,
     status: 'available'
   },
@@ -6103,7 +6092,7 @@ export const aiTools: Tool[] = [
     tags: ['ssh', 'mobile', 'roaming', 'udp'],
     homepage: 'https://mosh.org',
     repository: 'https://github.com/mobile-shell/mosh',
-    installCommand: 'sudo dnf install mosh',
+    installCommand: 'sudo pacman -S mosh',
     status: 'available'
   },
   {
@@ -6114,7 +6103,7 @@ export const aiTools: Tool[] = [
     category: 'linux-distros',
     icon: '🔌',
     tags: ['ethernet', 'network', 'configuration'],
-    installCommand: 'sudo dnf install ethtool',
+    installCommand: 'sudo pacman -S ethtool',
     status: 'available'
   },
   {
@@ -6125,7 +6114,7 @@ export const aiTools: Tool[] = [
     category: 'linux-distros',
     icon: '📶',
     tags: ['wifi', 'wireless', 'nl80211'],
-    installCommand: 'sudo dnf install iw',
+    installCommand: 'sudo pacman -S iw',
     status: 'available'
   },
   {
@@ -6137,7 +6126,7 @@ export const aiTools: Tool[] = [
     icon: '🔍',
     tags: ['network', 'security', 'scanner', 'port'],
     homepage: 'https://nmap.org',
-    installCommand: 'sudo dnf install nmap',
+    installCommand: 'sudo pacman -S nmap',
     isPopular: true,
     status: 'available'
   },
@@ -6150,7 +6139,7 @@ export const aiTools: Tool[] = [
     icon: '📦',
     tags: ['network', 'packet', 'capture', 'debug'],
     homepage: 'https://tcpdump.org',
-    installCommand: 'sudo dnf install tcpdump',
+    installCommand: 'sudo pacman -S tcpdump',
     status: 'available'
   },
   {
@@ -6162,7 +6151,7 @@ export const aiTools: Tool[] = [
     icon: '🦈',
     tags: ['network', 'protocol', 'analyzer', 'gui'],
     homepage: 'https://wireshark.org',
-    installCommand: 'sudo dnf install wireshark',
+    installCommand: 'sudo pacman -S wireshark',
     isPopular: true,
     status: 'available'
   },
@@ -6175,7 +6164,7 @@ export const aiTools: Tool[] = [
     icon: '🌐',
     tags: ['http', 'download', 'api', 'transfer'],
     homepage: 'https://curl.se',
-    installCommand: 'sudo dnf install curl',
+    installCommand: 'sudo pacman -S curl',
     isPopular: true,
     status: 'available'
   },
@@ -6188,7 +6177,7 @@ export const aiTools: Tool[] = [
     icon: '⬇️',
     tags: ['download', 'http', 'ftp'],
     homepage: 'https://gnu.org/software/wget',
-    installCommand: 'sudo dnf install wget',
+    installCommand: 'sudo pacman -S wget',
     isPopular: true,
     status: 'available'
   },
@@ -6218,7 +6207,7 @@ export const aiTools: Tool[] = [
     icon: '🗄️',
     tags: ['btrfs', 'filesystem', 'snapshot', 'compression'],
     homepage: 'https://btrfs.readthedocs.io',
-    installCommand: 'sudo dnf install btrfs-progs',
+    installCommand: 'sudo pacman -S btrfs-progs',
     status: 'available',
     configOptions: [
       { key: 'compression', label: 'Compression', type: 'select', default: 'zstd', options: [
@@ -6246,7 +6235,7 @@ export const aiTools: Tool[] = [
     tags: ['zfs', 'filesystem', 'snapshot', 'raid'],
     homepage: 'https://openzfs.org',
     repository: 'https://github.com/openzfs/zfs',
-    installCommand: 'sudo dnf install zfs',
+    installCommand: 'sudo pacman -S zfs',
     status: 'available'
   },
   {
@@ -6258,7 +6247,7 @@ export const aiTools: Tool[] = [
     icon: '📊',
     tags: ['lvm', 'storage', 'volume', 'logical'],
     homepage: 'https://sourceware.org/lvm2',
-    installCommand: 'sudo dnf install lvm2',
+    installCommand: 'sudo pacman -S lvm2',
     status: 'available'
   },
   {
@@ -6270,7 +6259,7 @@ export const aiTools: Tool[] = [
     icon: '🔄',
     tags: ['sync', 'backup', 'transfer', 'incremental'],
     homepage: 'https://rsync.samba.org',
-    installCommand: 'sudo dnf install rsync',
+    installCommand: 'sudo pacman -S rsync',
     isPopular: true,
     status: 'available'
   },
@@ -6284,7 +6273,7 @@ export const aiTools: Tool[] = [
     tags: ['backup', 'encryption', 'deduplication', 'go'],
     homepage: 'https://restic.net',
     repository: 'https://github.com/restic/restic',
-    installCommand: 'sudo dnf install restic',
+    installCommand: 'sudo pacman -S restic',
     isPopular: true,
     status: 'available'
   },
@@ -6298,7 +6287,7 @@ export const aiTools: Tool[] = [
     tags: ['backup', 'deduplication', 'encryption', 'python'],
     homepage: 'https://borgbackup.org',
     repository: 'https://github.com/borgbackup/borg',
-    installCommand: 'sudo dnf install borgbackup',
+    installCommand: 'sudo pacman -S borgbackup',
     isPopular: true,
     status: 'available'
   },
@@ -6311,7 +6300,7 @@ export const aiTools: Tool[] = [
     icon: '⏮️',
     tags: ['backup', 'snapshot', 'restore', 'btrfs'],
     repository: 'https://github.com/linuxmint/timeshift',
-    installCommand: 'sudo dnf install timeshift',
+    installCommand: 'sudo pacman -S timeshift',
     isPopular: true,
     status: 'available'
   },
@@ -6324,7 +6313,7 @@ export const aiTools: Tool[] = [
     icon: '💾',
     tags: ['disk', 'usage', 'analyzer', 'terminal'],
     homepage: 'https://dev.yorhel.nl/ncdu',
-    installCommand: 'sudo dnf install ncdu',
+    installCommand: 'sudo pacman -S ncdu',
     status: 'available'
   },
   {
@@ -6336,7 +6325,7 @@ export const aiTools: Tool[] = [
     icon: '💿',
     tags: ['disk', 'usage', 'go', 'modern'],
     repository: 'https://github.com/muesli/duf',
-    installCommand: 'sudo dnf install duf',
+    installCommand: 'sudo pacman -S duf',
     status: 'available'
   },
   {
@@ -6348,7 +6337,7 @@ export const aiTools: Tool[] = [
     icon: '⚡',
     tags: ['disk', 'usage', 'go', 'fast'],
     repository: 'https://github.com/dundee/gdu',
-    installCommand: 'sudo dnf install gdu',
+    installCommand: 'sudo pacman -S gdu',
     status: 'available'
   },
 
@@ -6364,7 +6353,7 @@ export const aiTools: Tool[] = [
     icon: '🖥️',
     tags: ['kvm', 'qemu', 'virtualization', 'hypervisor'],
     homepage: 'https://linux-kvm.org',
-    installCommand: 'sudo dnf install qemu-kvm libvirt',
+    installCommand: 'sudo pacman -S qemu-kvm libvirt',
     isPopular: true,
     status: 'available',
     configOptions: [
@@ -6381,7 +6370,7 @@ export const aiTools: Tool[] = [
     icon: '🔧',
     tags: ['libvirt', 'virtualization', 'api', 'daemon'],
     homepage: 'https://libvirt.org',
-    installCommand: 'sudo dnf install libvirt libvirt-client',
+    installCommand: 'sudo pacman -S libvirt libvirt-client',
     isPopular: true,
     status: 'available'
   },
@@ -6394,7 +6383,7 @@ export const aiTools: Tool[] = [
     icon: '🖥️',
     tags: ['virtualization', 'gui', 'kvm', 'qemu'],
     homepage: 'https://virt-manager.org',
-    installCommand: 'sudo dnf install virt-manager',
+    installCommand: 'sudo pacman -S virt-manager',
     isPopular: true,
     status: 'available'
   },
@@ -6408,7 +6397,7 @@ export const aiTools: Tool[] = [
     tags: ['vagrant', 'vm', 'automation', 'development'],
     homepage: 'https://vagrantup.com',
     repository: 'https://github.com/hashicorp/vagrant',
-    installCommand: 'sudo dnf install vagrant',
+    installCommand: 'sudo pacman -S vagrant',
     isPopular: true,
     status: 'available'
   },
@@ -6421,7 +6410,7 @@ export const aiTools: Tool[] = [
     icon: '📦',
     tags: ['lxc', 'lxd', 'container', 'vm'],
     homepage: 'https://linuxcontainers.org',
-    installCommand: 'sudo dnf install lxd',
+    installCommand: 'sudo pacman -S lxd',
     isPopular: true,
     status: 'available'
   },
@@ -6434,7 +6423,7 @@ export const aiTools: Tool[] = [
     icon: '⚡',
     tags: ['vm', 'qemu', 'quick', 'automation'],
     repository: 'https://github.com/quickemu-project/quickemu',
-    installCommand: 'sudo dnf install quickemu',
+    installCommand: 'sudo pacman -S quickemu',
     status: 'available'
   },
   {
@@ -6446,7 +6435,7 @@ export const aiTools: Tool[] = [
     icon: '🔧',
     tags: ['vm', 'image', 'tools', 'libguestfs'],
     homepage: 'https://libguestfs.org',
-    installCommand: 'sudo dnf install guestfs-tools',
+    installCommand: 'sudo pacman -S guestfs-tools',
     status: 'available'
   },
   {
@@ -6459,7 +6448,7 @@ export const aiTools: Tool[] = [
     tags: ['kvm', 'gpu-passthrough', 'gaming', 'vm'],
     homepage: 'https://looking-glass.io',
     repository: 'https://github.com/gnif/LookingGlass',
-    installCommand: 'sudo dnf install looking-glass-client',
+    installCommand: 'sudo pacman -S looking-glass-client',
     status: 'available'
   },
   {
@@ -6470,7 +6459,7 @@ export const aiTools: Tool[] = [
     category: 'linux-distros',
     icon: '🎮',
     tags: ['vfio', 'gpu-passthrough', 'iommu', 'kvm'],
-    installCommand: 'sudo dnf install vfio-tools',
+    installCommand: 'sudo pacman -S vfio-tools',
     status: 'available'
   },
 
@@ -6486,7 +6475,7 @@ export const aiTools: Tool[] = [
     icon: '📦',
     tags: ['git', 'version-control', 'vcs'],
     homepage: 'https://git-scm.com',
-    installCommand: 'sudo dnf install git',
+    installCommand: 'sudo pacman -S git',
     isPopular: true,
     status: 'available'
   },
@@ -6500,7 +6489,7 @@ export const aiTools: Tool[] = [
     tags: ['github', 'cli', 'api'],
     homepage: 'https://cli.github.com',
     repository: 'https://github.com/cli/cli',
-    installCommand: 'sudo dnf install gh',
+    installCommand: 'sudo pacman -S gh',
     isPopular: true,
     status: 'available'
   },
@@ -6513,7 +6502,7 @@ export const aiTools: Tool[] = [
     icon: '🦊',
     tags: ['gitlab', 'cli', 'api'],
     repository: 'https://gitlab.com/gitlab-org/cli',
-    installCommand: 'sudo dnf install glab',
+    installCommand: 'sudo pacman -S glab',
     status: 'available'
   },
   {
@@ -6525,7 +6514,7 @@ export const aiTools: Tool[] = [
     icon: '🔨',
     tags: ['build', 'make', 'automation'],
     homepage: 'https://gnu.org/software/make',
-    installCommand: 'sudo dnf install make',
+    installCommand: 'sudo pacman -S make',
     status: 'available'
   },
   {
@@ -6537,7 +6526,7 @@ export const aiTools: Tool[] = [
     icon: '🔧',
     tags: ['build', 'cmake', 'cross-platform'],
     homepage: 'https://cmake.org',
-    installCommand: 'sudo dnf install cmake',
+    installCommand: 'sudo pacman -S cmake',
     isPopular: true,
     status: 'available'
   },
@@ -6550,7 +6539,7 @@ export const aiTools: Tool[] = [
     icon: '🥷',
     tags: ['build', 'ninja', 'fast'],
     homepage: 'https://ninja-build.org',
-    installCommand: 'sudo dnf install ninja-build',
+    installCommand: 'sudo pacman -S ninja-build',
     status: 'available'
   },
   {
@@ -6562,7 +6551,7 @@ export const aiTools: Tool[] = [
     icon: '⚙️',
     tags: ['compiler', 'gcc', 'c', 'cpp'],
     homepage: 'https://gcc.gnu.org',
-    installCommand: 'sudo dnf install gcc gcc-c++',
+    installCommand: 'sudo pacman -S gcc gcc-c++',
     isPopular: true,
     status: 'available'
   },
@@ -6575,7 +6564,7 @@ export const aiTools: Tool[] = [
     icon: '🐉',
     tags: ['compiler', 'clang', 'llvm', 'cpp'],
     homepage: 'https://llvm.org',
-    installCommand: 'sudo dnf install clang lld',
+    installCommand: 'sudo pacman -S clang lld',
     isPopular: true,
     status: 'available'
   },
@@ -6588,7 +6577,7 @@ export const aiTools: Tool[] = [
     icon: '🐛',
     tags: ['debugger', 'gdb', 'debugging'],
     homepage: 'https://gnu.org/software/gdb',
-    installCommand: 'sudo dnf install gdb',
+    installCommand: 'sudo pacman -S gdb',
     status: 'available'
   },
   {
@@ -6600,7 +6589,7 @@ export const aiTools: Tool[] = [
     icon: '🔍',
     tags: ['debug', 'trace', 'syscall'],
     homepage: 'https://strace.io',
-    installCommand: 'sudo dnf install strace',
+    installCommand: 'sudo pacman -S strace',
     status: 'available'
   },
   {
@@ -6612,7 +6601,7 @@ export const aiTools: Tool[] = [
     icon: '🐛',
     tags: ['debugger', 'lldb', 'llvm'],
     homepage: 'https://lldb.llvm.org',
-    installCommand: 'sudo dnf install lldb',
+    installCommand: 'sudo pacman -S lldb',
     status: 'available'
   },
 
@@ -7330,7 +7319,7 @@ export const aiTools: Tool[] = [
     icon: '🔏',
     tags: ['gpg', 'encryption', 'pgp', 'signing'],
     homepage: 'https://gnupg.org',
-    installCommand: 'sudo dnf install gnupg2',
+    installCommand: 'sudo pacman -S gnupg2',
     isPopular: true,
     status: 'available'
   },
@@ -7343,7 +7332,7 @@ export const aiTools: Tool[] = [
     icon: '🗝️',
     tags: ['ssh', 'gpg', 'agent', 'keychain'],
     repository: 'https://github.com/funtoo/keychain',
-    installCommand: 'sudo dnf install keychain',
+    installCommand: 'sudo pacman -S keychain',
     status: 'available'
   },
   {
@@ -7356,7 +7345,7 @@ export const aiTools: Tool[] = [
     tags: ['pass', 'password', 'unix', 'gpg'],
     homepage: 'https://passwordstore.org',
     repository: 'https://git.zx2c4.com/password-store',
-    installCommand: 'sudo dnf install pass',
+    installCommand: 'sudo pacman -S pass',
     status: 'available'
   },
 
