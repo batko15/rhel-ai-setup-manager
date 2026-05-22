@@ -1,8 +1,5 @@
 // This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// RHEL AI Full-Stack Setup Management System
 
 generator client {
   provider = "prisma-client-js"
@@ -13,20 +10,147 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// User management
 model User {
   id        String   @id @default(cuid())
   email     String   @unique
   name      String?
+  role      String   @default("user")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model Post {
+// Tool categories
+model ToolCategory {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  icon        String?
+  color       String?
+  order       Int      @default(0)
+  tools       Tool[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// AI Tools and Applications
+model Tool {
+  id              String       @id @default(cuid())
+  name            String
+  slug            String       @unique
+  description     String?
+  longDescription String?
+  version         String?
+  homepage        String?
+  repository      String?
+  documentation   String?
+  icon            String?
+  category        String?
+  categoryId      String?
+  categoryRel     ToolCategory? @relation(fields: [categoryId], references: [id])
+  tags            String?
+  requirements    String?
+  installCommand  String?
+  uninstallCmd    String?
+  configTemplate  String?
+  dockerImage     String?
+  dockerCompose   String?
+  systemdService  String?
+  isInstalled     Boolean      @default(false)
+  isEnabled       Boolean      @default(false)
+  isPopular       Boolean      @default(false)
+  status          String       @default("available")
+  lastChecked     DateTime?
+  installedAt     DateTime?
+  configs         ToolConfig[]
+  dependencies    Dependency[] @relation("ToolDependencies")
+  dependents      Dependency[] @relation("ToolDependents")
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+}
+
+// Tool configurations
+model ToolConfig {
+  id           String   @id @default(cuid())
+  toolId       String
+  tool         Tool     @relation(fields: [toolId], references: [id], onDelete: Cascade)
+  configKey    String
+  configValue  String?
+  isSecret     Boolean  @default(false)
+  description  String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  @@unique([toolId, configKey])
+}
+
+// Tool dependencies
+model Dependency {
+  id             String @id @default(cuid())
+  toolId         String
+  dependsOnId    String
+  tool           Tool   @relation("ToolDependencies", fields: [toolId], references: [id], onDelete: Cascade)
+  dependsOn      Tool   @relation("ToolDependents", fields: [dependsOnId], references: [id], onDelete: Cascade)
+  isRequired     Boolean @default(true)
+  
+  @@unique([toolId, dependsOnId])
+}
+
+// Installation profiles
+model InstallProfile {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  isDefault   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  tools       ProfileTool[]
+}
+
+// Profile-Tool relationship
+model ProfileTool {
   id        String   @id @default(cuid())
-  title     String
-  content   String?
-  published Boolean  @default(false)
-  authorId  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  profileId String
+  toolId    String
+  enabled   Boolean  @default(true)
+  profile   InstallProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  
+  @@unique([profileId, toolId])
+}
+
+// System status
+model SystemStatus {
+  id            String   @id @default(cuid())
+  cpuUsage      Float?
+  memoryUsage   Float?
+  gpuUsage      Float?
+  gpuMemory     Float?
+  diskUsage     Float?
+  uptime        Int?
+  lastUpdated   DateTime @default(now())
+}
+
+// Installation logs
+model InstallLog {
+  id          String   @id @default(cuid())
+  toolId      String?
+  toolName    String?
+  action      String
+  status      String
+  message     String?
+  duration    Int?
+  createdAt   DateTime @default(now())
+}
+
+// GPU Information
+model GPUInfo {
+  id              String   @id @default(cuid())
+  name            String?
+  driverVersion   String?
+  cudaVersion     String?
+  memoryTotal     Int?
+  memoryUsed      Int?
+  temperature     Float?
+  utilization     Float?
+  lastUpdated     DateTime @default(now())
 }
